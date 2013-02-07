@@ -1,2 +1,5 @@
 .idea
 *.iml
+application/target
+networkData/target
+snapshotExplorer/target
