@@ -2,6 +2,7 @@ package net.chunxie.snapshotexplorer.action;
 
 import net.chunxie.networkdata.api.SnapshotService;
 import net.chunxie.networkdata.entity.*;
+import net.chunxie.networkgraph.cn.CollaborativeTopComponent;
 import net.chunxie.snapshotexplorer.SnapshotExplorerTopComponent;
 import net.chunxie.snapshotexplorer.node.RootNode;
 import net.chunxie.snapshotexplorer.node.factory.SnapshotChildFactory;
@@ -128,11 +129,10 @@ public class AcquireDataAction implements ActionListener {
 
                         @Override
                         public void run() {
-                            // TODO fix this later
-                            /*CollaborativeTopComponent cnc = CollaborativeTopComponent.getComponent(snapshot, null);
+                            CollaborativeTopComponent cnc = CollaborativeTopComponent.getComponent(snapshot, null);
                             cnc.setName("Collaborative Network(" + snapshot.getShortDesc() + ")");
                             cnc.open();
-                            cnc.requestActive();*/
+                            cnc.requestActive();
                         }
                     });
                 }

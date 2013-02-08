@@ -153,8 +153,7 @@ public final class SnapshotExplorerTopComponent extends TopComponent implements 
 
     @Override
     protected void componentOpened() {
-        // TODO fix this later
-        //initForumCombo();
+        initForumCombo();
     }
 
     @Override

@@ -1,6 +1,7 @@
 package net.chunxie.snapshotexplorer.action;
 
 import net.chunxie.networkdata.entity.Snapshot;
+import net.chunxie.networkgraph.cn.CollaborativeTopComponent;
 
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
@@ -23,10 +24,9 @@ public class OpenCollaborativeNetworkAction extends AbstractAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO fix this later
-        /*CollaborativeTopComponent cnc = CollaborativeTopComponent.getComponent(snapshot, null);
+        CollaborativeTopComponent cnc = CollaborativeTopComponent.getComponent(snapshot, null);
         cnc.setName(NETWORK_TITLE + snapshot.getShortDesc() + ")");
         cnc.open();
-        cnc.requestActive();*/
+        cnc.requestActive();
     }
 }
