@@ -2,4 +2,6 @@
 *.iml
 application/target
 networkData/target
+networkGraph/target
+pgsqlDataImpl/target
 snapshotExplorer/target
