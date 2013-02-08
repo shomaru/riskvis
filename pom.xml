@@ -61,6 +61,7 @@
         <module>snapshotExplorer</module>
         <module>networkData</module>
         <module>pgsqlDataImpl</module>
+        <module>networkGraph</module>
     </modules>
 
     <properties>
