@@ -245,7 +245,7 @@ public final class DataSourceConfigurationPanel extends JPanel {
         pwdTextField.setText("postgres");
 
         forumTextField.setText("robust_scn_forums");
-        messageTextField.setText("robust_scn_messages_a");
+        messageTextField.setText("robust_scn_messages");
         messageContentTextField.setText("robust_scn_messagecontent");
         messagePointTextField.setText("robust_scn_message_points");
         pointTextField.setText("robust_scn_points");
