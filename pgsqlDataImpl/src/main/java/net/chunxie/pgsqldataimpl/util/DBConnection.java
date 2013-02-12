@@ -23,13 +23,13 @@ public class DBConnection {
     private String dburl;
     private String username;
     private String password;
-    public static String ROBUST_SCN_FORUM;
-    public static String ROBUST_SCN_MESSAGE_POINTS;
-    public static String ROBUST_SCN_MESSAGE_CONTENT;
-    public static String ROBUST_SCN_MESSAGES;
-    public static String ROBUST_SCN_POINTS;
-    public static String ROBUST_SCN_REPLIES;
-    public static String ROBUST_SCN_THREADS;
+    public static String FORUMS;
+    public static String MESSAGE_POINTS;
+    public static String MESSAGE_CONTENT;
+    public static String MESSAGES;
+    public static String POINTS;
+    public static String REPLIES;
+    public static String THREADS;
     Connection con = null;
     Statement stmt = null;
     /** result set from the most recent openQueryRS call
@@ -44,13 +44,13 @@ public class DBConnection {
         username = pref.get("username", "");
         password = pref.get("password", "");
 
-        ROBUST_SCN_FORUM = pref.get("forum", "");
-        ROBUST_SCN_MESSAGE_POINTS = pref.get("messagepoint", "");
-        ROBUST_SCN_MESSAGE_CONTENT = pref.get("messagecontent", "");
-        ROBUST_SCN_MESSAGES = pref.get("message", "");
-        ROBUST_SCN_POINTS = pref.get("point", "");
-        ROBUST_SCN_REPLIES = pref.get("reply", "");
-        ROBUST_SCN_THREADS = pref.get("thread", "");
+        FORUMS = pref.get("forum", "");
+        MESSAGE_POINTS = pref.get("messagepoint", "");
+        MESSAGE_CONTENT = pref.get("messagecontent", "");
+        MESSAGES = pref.get("message", "");
+        POINTS = pref.get("point", "");
+        REPLIES = pref.get("reply", "");
+        THREADS = pref.get("thread", "");
 
         pref.addPreferenceChangeListener(new PreferenceChangeListener() {
 
@@ -70,25 +70,25 @@ public class DBConnection {
                 }
 
                 if (evt.getKey().equals("forum")) {
-                    ROBUST_SCN_FORUM = evt.getNewValue();
+                    FORUMS = evt.getNewValue();
                 }
                 if (evt.getKey().equals("messagepoint")) {
-                    ROBUST_SCN_MESSAGE_POINTS = evt.getNewValue();
+                    MESSAGE_POINTS = evt.getNewValue();
                 }
                 if (evt.getKey().equals("messagecontent")) {
-                    ROBUST_SCN_MESSAGE_CONTENT = evt.getNewValue();
+                    MESSAGE_CONTENT = evt.getNewValue();
                 }
                 if (evt.getKey().equals("message")) {
-                    ROBUST_SCN_MESSAGES = evt.getNewValue();
+                    MESSAGES = evt.getNewValue();
                 }
                 if (evt.getKey().equals("point")) {
-                    ROBUST_SCN_POINTS = evt.getNewValue();
+                    POINTS = evt.getNewValue();
                 }
                 if (evt.getKey().equals("reply")) {
-                    ROBUST_SCN_REPLIES = evt.getNewValue();
+                    REPLIES = evt.getNewValue();
                 }
                 if (evt.getKey().equals("thread")) {
-                    ROBUST_SCN_THREADS = evt.getNewValue();
+                    THREADS = evt.getNewValue();
                 }
             }
         });

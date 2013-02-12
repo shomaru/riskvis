@@ -240,17 +240,17 @@ public final class DataSourceConfigurationPanel extends JPanel {
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {
         driverTextField.setText("org.postgresql.Driver");
-        urlTextField.setText("jdbc:postgresql://127.0.0.1:5432/robust_scn");
+        urlTextField.setText("jdbc:postgresql://localhost:5432/riskvis");
         userNameTextField.setText("postgres");
         pwdTextField.setText("postgres");
 
-        forumTextField.setText("robust_scn_forums");
-        messageTextField.setText("robust_scn_messages");
-        messageContentTextField.setText("robust_scn_messagecontent");
-        messagePointTextField.setText("robust_scn_message_points");
-        pointTextField.setText("robust_scn_points");
-        replyTextField.setText("robust_scn_replies");
-        threadTextField.setText("robust_scn_threads");
+        forumTextField.setText("forums");
+        messageTextField.setText("messages");
+        messageContentTextField.setText("messagecontent");
+        messagePointTextField.setText("message_points");
+        pointTextField.setText("points");
+        replyTextField.setText("replies");
+        threadTextField.setText("threads");
     }
 
     void load() {

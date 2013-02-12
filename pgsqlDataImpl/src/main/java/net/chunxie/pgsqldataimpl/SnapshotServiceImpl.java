@@ -37,7 +37,7 @@ public class SnapshotServiceImpl implements SnapshotService {
         String lowerTime = s.getStartDate();
         String upperTime = s.getEndDate();
         String sql = "SELECT DISTINCT(t.threaduri) AS threaduri, threadtitle, status, noofviews, forumuri "
-                + "FROM " + DBConnection.ROBUST_SCN_MESSAGES + " m, " + DBConnection.ROBUST_SCN_THREADS + " t "
+                + "FROM " + DBConnection.MESSAGES + " m, " + DBConnection.THREADS + " t "
                 + "WHERE m.threaduri = t.threaduri "
                 + "AND forumuri = '" + s.getForum().getForumuri() + "' "
                 + "AND creationDate::timestamp "
@@ -50,7 +50,7 @@ public class SnapshotServiceImpl implements SnapshotService {
     @Override
     public List<Forum> findAllForums() {
         String sql = "SELECT *"
-                + " FROM " + DBConnection.ROBUST_SCN_FORUM;
+                + " FROM " + DBConnection.FORUMS;
         return forumDao.findForums(sql);
     }
 
@@ -59,10 +59,10 @@ public class SnapshotServiceImpl implements SnapshotService {
         String lowerTime = s.getStartDate();
         String upperTime = s.getEndDate();
         String sql = "SELECT m.messageuri AS messageuri, threaduri, messagetitle, contributor, creationdate::TIMESTAMP AS creationdate, awardedpoints "
-                + "FROM " + DBConnection.ROBUST_SCN_MESSAGES + " m "
+                + "FROM " + DBConnection.MESSAGES + " m "
                 //+ "INNER JOIN robust_SCN_messagecontent mc "
                 //+ "ON m.messageuri = mc.messageuri "
-                + "LEFT JOIN " + DBConnection.ROBUST_SCN_MESSAGE_POINTS + " mp "
+                + "LEFT JOIN " + DBConnection.MESSAGE_POINTS + " mp "
                 + "ON m.messageuri=mp.messageuri "
                 + "WHERE threaduri = '" + t.getThreaduri() + "' "
                 + "AND awardedpoints > 0 "
