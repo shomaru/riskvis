@@ -63,28 +63,4 @@ public class ForumMessageDao {
         }
         return result;
     }
-
-    public ForumMessage findOriginalMessage(ForumMessage message) {
-        String sql1 = "SELECT * FROM robust_SCN_replies WHERE reply = '" + message.getMessageuri() + "'";
-        ForumMessage result = null;
-        try {
-            dc.open();
-            dc.openQueryRS(sql1);
-            while (dc.rs.next()) {
-                //get uri of the original message to which this reply was produced
-                String originalMessageuri = dc.rs.getString("original");
-                String sql2 = "SELECT * FROM robust_SCN_messages WHERE messageuri = '" + originalMessageuri + "'";
-                List<ForumMessage> list = findForumMessages(sql2);
-                if (list.size() == 1) {
-                    result = list.get(0);
-                }
-            }
-        } catch (SQLException ex) {
-            throw new RuntimeException("SQLException caught: " + ex.getMessage(), ex);
-        } finally {
-            dc.closeQueryRS();
-            dc.close();
-        }
-        return result;
-    }
 }
