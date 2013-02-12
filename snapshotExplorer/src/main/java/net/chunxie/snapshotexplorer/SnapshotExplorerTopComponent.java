@@ -81,6 +81,7 @@ public final class SnapshotExplorerTopComponent extends TopComponent implements 
         yearCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2010", "2009", "2008", "2007", "2006", "2005" }));
 
         monthCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "January", "Febrary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        monthCombo.setSelectedIndex(3);
 
         loadButton.setFont(new java.awt.Font("Tahoma", 0, 16));
         loadButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/chunxie/snapshotexplorer/load_32.png"))); // NOI18N
