@@ -1,0 +1,41 @@
+%% ----------------------------------------------------------------
+%% RelatedWork.tex
+%% ---------------------------------------------------------------- 
+\chapter{Related Work} \label{Chapter:RelatedWork}
+
+From hand-drawn sociograms to computer-based graphics, visual representation of social networks has a long history as well as a large number of relevant papers. In contrast to a comprehensive literature review in \citep{Chen2010}, this chapter briefly summarises the contributions of several novel papers in the area of general social networks visualisation, and then focuses on those visualisation tools for the domain of Internet forums which are more specific and similar with this thesis.
+
+\section{Social Network Visualisation}
+
+Visualisation has played a vital role in Social Network Analysis (SNA) not only for presentation, but also for exploration \citep{Brandes2008a}. Two major visual representations of social networks have been reported in the literature: node-edge diagrams and matrix representations. Because a social network consists of nodes linked with edges, the node-edge diagrams is an intuitive method for social network visualisation, where the nodes in the diagram generally represent individuals in the network while the edges refer to relationships between individuals. For example, \citep{Newman2004a} presents a research on the social network of scientific collaborations, which consists of authors connected with the co-authorship of papers for a specific field. The matrix representations exploits a binary matrix whose columns and rows refer to the individuals. The elements of the matrix include 1s and 0s, where a 1 indicates that there is a link and a 0 indicates there is no link.
+
+\subsection{Node-Edge Diagrams}
+PieSpy \citep{Mutton2004} produces static node-edge diagrams of the inferred social network in an Internet chat system called Internet Relay Chat (IRC). This paper presents the key features of the node-edge diagram approach, such as visual properties, layout, highlighting connectivity and clustering. These functionalities have been also offered in this thesis. However, the limitation of PieSpy is that the visualisations are actually static images without any interactive features.
+
+Vizster \citep{Heer2005a} is a visualisation tool which aims at visualising a social network called Friendster. Based on an egocentric network from the perspective of a specific user, it provides a number of highly interactive features such as filtering, highlighting, and searching. Furthermore, cluster analysis is provided to help users to explore group structure of their communities in the whole social network.
+
+Similarly, SocialAction \citep{Perer2006} also stresses the importance of user interactions with the social network visualisations. Besides the main graph visualisations, it also provides two interconnected views: the attribute ranking view and coordinated view. The former is a traditional data grid which lists all nodes ordered by a specific graph metric such as betweenness centrality, whilst the latter presents all nodes in the graph visualisation from the perspective of a scatter plot view.
+
+TempoVis \citep{Ahn2011} makes use of two different prototypes to visualise data in Nation of Neighbours (NoN). They first employ NodeXL \citep{Hansen2010} as spreadsheet-based approach then create a standalone application to explore the temporal features in the graph visualisation.
+
+Meerkat \citep{Chen2010a} is a visualisation tool for exploration of social networks. It offers a rich set of features: navigation in a node-edge diagram, searching and filtering, a number of layout algorithms for end users to choose in the runtime, community mining. Most importantly, the prototype of Meerkat is based on the Java Universal Network/Graph Framework (see Section~\ref{sec:candidate_framework}), which will also be used to implement the prototype of the forum visualisation tool in this thesis (see Section~\ref{sec:riskvis_module_desc}).
+
+\subsection{Matrix Representation}
+Although the node-edge diagram representation is the mainstream for social network visualisation, \citep{Ghoniem2004} and \citep{Keller2006} point out that this approach has the occlusion problem when the number of nodes dramatically increases. As a consequence, several solutions have been proposed In order to solve this problem.
+
+MatrixExplorer \citep{Henry2006} provides two synchronised representations of the same graph: the node-edge diagrams, and matrix representation. The matrices provide interactive filtering, clustering, and annotation features. However, the matrix representation is less intuitive than the node-edge diagram, the author has to provide a traditional node-edge view and manage synchronisation between two views. In addition to the dual representation, this paper also summarises thirteen requirements for social network visualisation, most of which are generic and can be used as a requirement list.
+
+Based on the previous work, NodeTrix \citep{Henry2007} presents a hybrid representation by combining the advantage of node-edge diagrams and matrix representation. The node-edge diagram is used to display the overall structure of a social network, while the matrix representation is used to represent the node in the node-edge diagram from a personalised view of the whole network. In this way, the central individuals in the social network are mapped to a high-dimensional matrix while the peripheral ones are shown as a low-dimensional matrix. 
+
+Additionally, PostHistory \citep{Viegas2004} shows the cartographic representation to visualise the evolution of emails exchanged between ego and each different contact. The author also argues that the social networks visualisation should go beyond the node-edge as well as matrix paradigm by proposing her cartographic representation. 
+
+\section{Visualising Internet Forums}
+
+The VIDI toolbar \citep{Trampus2010} is a generic plug-in integrated into any Internet forum, which provides three different types of visualisation tools for visitors or moderators to explore the forum. The topical atlas, which is the most interesting component in the toolbar, makes use of a two-dimensional scatter plot chart instead of the node-edge diagram to visualise all the messages within a set of threads. Specifically, each message is mapped to a point in the chart, and the distance between two points is proportional to the similarity of two messages.
+
+A research study on social roles in Internet forums has been conducted in \citep{Welser2007}. This paper successfully shows how visualisations assist researchers to identify the answer people in Usenet newsgroups. The corresponding visualisations are generated with the aid of JUNG (see Section~\ref{sec:candidate_framework}). However, it only focuses on the structure of the network without any interactive issues, which is very different from \citep{Chen2010a} and this thesis.
+
+In contrast to \citep{Trampus2010} and \citep{Welser2007}, WET \citep{Pascual2007} presents an exploratory visualisation tool designed for forum users, which makes use of a radial tree provided by the prefuse (see Section~\ref{sec:candidate_framework}) visualisation framework to visualise a single thread as well as all corresponding messages in the Slashdot forum. The root node in the centre of the graph represents the conversation thread. The remaining nodes, which refer to the messages within this thread, are plotted on concentric rings to show a hierarchical structure. 
+
+\section{Summary}
+Having illustrated the categorised proposals reported in the literature, a series of state-of-art technologies have been utilised to visualise social networks. Based on this literature search, two conclusions can be drawn. First of all, the visual representation of these social networks can be further fallen into three groups in terms of their social relationships: user-centric visualisation, content-centric visualisation, and hybrid visualisation \citep{Chen2010}. In addition, it is necessary to choose an existing visualisation framework rather than do everything yourselves. Thus, an evaluation of graph visualisation frameworks will be carried out in Section~\ref{sec:evaluation_vis_framework}.

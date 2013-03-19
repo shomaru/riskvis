@@ -1,0 +1,16 @@
+%% ----------------------------------------------------------------
+%% Conclusions.tex
+%% ---------------------------------------------------------------- 
+\chapter{Conclusions and Future Work} \label{Chapter:Conclusions}
+
+In the previous chapters, the development process of a forum visualisation tool has been described on the foundation of research insights from the related work reported in the literature. This chapter first summarises the main ideas from Chapter~\ref{Chapter:RelatedWork} to Chapter~\ref{Chapter:Evaluation}, and then discusses some interesting ideas for the future work.
+
+\section{Conclusions}
+
+Chapter~\ref{Chapter:RelatedWork} first introduces several visualisation applications for analysing generic social network, and then focus on visualisations for analysing Internet forums. Chapter~\ref{Chapter:Approach} first demonstrates the development methods and process, and then selects JUNG as the graph visualisation frameworks after a full evaluation in terms of the overall, layout algorithm, and supported format. Chapter~\ref{Chapter:Requirements} first introduces and analyses the target data model - the SCN forum, and then lists a set of requirements derived from four use cases. Chapter~\ref{Chapter:Design} first defines three network graphs. The metrics as well as visual properties have also been clarified. The user interface design consists of the snapshot, collaborative network visualisation, and the collaborator-thread visualisation. Chapter~\ref{Chapter:Prototype} presents the implementation details of the first iteration of the prototype, which can be fallen into three sections: the overall architecture, execution environment, and modular visualisation tool itself. Chapter~\ref{Chapter:Evaluation} contributes a usability evaluation by collecting feedbacks from evaluation participants.
+
+\section{Future work}
+
+The next iteration of development includes integrating the risk management into the next prototype as well as enhancing the usability of the cluster finding feature.
+Firstly, the \emph{Assign Task} use case (see Section~\ref{sec:use_cases}) is beyond the scope of the current iteration. In the next iteration, the Risk and Task classes should be added into the enhanced data model (see \fref{Figure:06_09}). Added to that, a role-based access control is required for different roles (forum moderators and risk managers). Once the \emph{Find Experts} use case has been completed, the system automatically creates three risk analysis tasks, and then assigns them to idle risk managers in the system. When risk mangers log on the system, they are expected to receive a list of risk analysis tasks. Each task contains a risk which has been identified by forum moderators.  
+Secondly, the cluster finding feature in the collaborative network visualisation has been proven difficult to interpret and to understand. Therefore a more sophisticated workflow should be proposed in the next iteration to reduce the complexity.

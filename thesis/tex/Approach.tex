@@ -1,0 +1,94 @@
+%% ----------------------------------------------------------------
+%% Approach.tex
+%% ---------------------------------------------------------------- 
+\chapter{Development Approach} \label{Chapter:Approach}
+
+This chapter starts with a comparison between two widely used software development models. Then the development process applied to this work will be discussed. Next, a number of graph visualisation frameworks will be visited to avoid building the visualisation from scratch. Lastly, the decision on which framework to employ will be made after a comprehensive assessment.
+
+\section{Development Methodology and Process}
+
+\citep{Royce1970} proposed the famous waterfall model to regulate software development process, which divides the whole process into six phases from requirement analysis to software maintenance. The main disadvantage of this model is that it does not encourage revising any prior phase once finished. By contrast, the iterative and incremental development (IID), whose idea came intuitively from a large number of real-world projects, is considered as another development methodology in order to remedy the weakness of the waterfall model \citep{Larman2003}. The basic idea behind IID is to develop software through repeated cycles and focus on a limited set of requirements at a time.
+
+The following chapters only present one cycle in the iterative development process, which consists of four phases. First of all, a defined set of requirements derived from a risk identification, assessment, and reduction scenario will be established on the analysis of the target data model (see Chapter~\ref{Chapter:Requirements}). In the second phase, the design of the forum visualisation tool is conceptualised in terms of two key graph visualisations as well as corresponding user interfaces (see Chapter~\ref{Chapter:Design}). In the third phase, the design will be implemented as a working prototype. The specification of the prototype can be found in Chapter~\ref{Chapter:Prototype}. As the last phase of the development process, the evaluation (see Chapter~\ref{Chapter:Evaluation}) aimed at providing feedback on the design and will be conducted in the form of the face-to-face interview.
+
+\section{Graph Visualisation Frameworks}
+
+Instead of building the visualisation tool from scratch, an existing graph visualisation framework will be employed in the prototype of the tool. Four graph visualisation frameworks will be visited as the candidates and their functionalities will be assessed later.
+
+\subsection{Candidate Frameworks} \label{sec:candidate_framework}
+
+JUNG (Java Universal Network/Graph) \citep{White2005} is a Java library for the purpose of visualising data in the form of graph visualisations. JUNG has provided a rich set of built-in features encapsulated by user-friendly Java APIs.
+
+Prefuse \citep{Heer2005} is a Java third party library that contains a set of user interface widgets for creating dynamic data visualisation. It makes use of the Java2D graphic library to build up high-level visual components with the aim of helping programmers quickly create visualisation applications. In contrast to JUNG, prefuse provides various types of visualisation such as graphs, trees, and charts.
+
+Processing \citep{Fry2008} is a programming language, which is designed for visualising data in an environment called PDE (Processing Development Environment). Actually, the grammar of Processing is quite similar with Java, which simplifies Java APIs in the aspect of graphical tasks. Thus programmers can focus on the visualisation part.
+
+GraphStream \citep{Dutot2007} is a Java graph library which focuses on the dynamic features. Compared with its competitors like prefuse and JUNG, GraphStream provides several advanced functions to help developers work more efficiently with less code. This tool uses CSS wise style sheet to define the appearance of nodes and edges. In addition, Graphstream offers a built-in data importer via its own format. It also supports visualisation export with nodes, edges, and styles.
+
+\subsection{Evaluation of Graph Visualisation Frameworks} \label{sec:evaluation_vis_framework}
+
+As illustrated in Table~\ref{tab:03_01}, Processing is a powerful visualisation language equipped with PDE as well as a large number of books, tutorials, and plug-ins. However, it does not focus on graph and lacks of built-in features in a higher level so that most of interactions need to be developed from scratch.
+
+\begin{table}
+	\centering
+		\begin{tabular}{ | c | c | c | c | c |}
+			\hline    
+     & JUNG & prefuse & Processing & GraphStream\\ \hline
+Category & library & library & language & library\\ \hline
+Accessibility & medium & medium & difficult & medium\\ \hline
+Customizability & flexible & flexible & very flexible & flexible\\ \hline
+License & BSD & BSD & LGPL & LGPL\\ \hline
+Size of Graph & 150k & unknown & unknown & unknown\\ \hline
+Documentation & scarce & scarce & thorough & scarce\\ \hline
+Community & active & active & very active & no\\ \hline
+Deployment & jar & jar & pde & jar\\ \hline
+Language & Java & Java & Processing & Java\\ \hline
+
+    \hline
+		\end{tabular}
+	\caption{The comparison of graph visualisation frameworks among JUNG, prefuse, Processing, and GraphStream.}
+	\label{tab:03_01}
+\end{table}
+
+Now the scope has narrowed down to three frameworks: the prefuse, JUNG, and GraphStream. There are apparent similarities among them in most aspects of requirements so that a further assessment is needed to choose a tool from them.
+
+Layout management is a crucial feature that a graph tool should provide, without which it is difficult for developers to plot thousands of graph elements in the graph visualisation. According to Table~\ref{tab:03_02}, it is obvious that JUNG provides a richer set of layout algorithms than prefuse and GraphStream.
+
+\begin{table}
+	\centering
+		\begin{tabular}{ | c | c | c | c |}
+		\hline    
+		 & JUNG & prefuse & GraphStream\\ \hline
+CircleLayout & Yes &  & \\ \hline
+FRLayout  & Yes & Yes & \\ \hline
+ISOMLayout &  Yes &  & \\ \hline
+KKLayout & Yes &  & \\ \hline
+SpringLayout & Yes & Yes & Yes \\
+\hline
+
+		\end{tabular}
+	\caption{The comparison of built-in layout algorithms among JUNG, prefuse, and GraphStream.}
+	\label{tab:03_02}
+\end{table}
+
+There have been several widely used file formats to define a graph. It is useful for programmers to save time on parsing source files as well as exporting an existing graph, as listed in Table~\ref{tab:03_03}. JUNG has supported popular graph-format. However, there is a bug that failed to load GraphML data attributes. In addition, JUNG is capable of both reading and writing simple Net-format files. 
+
+\begin{table}
+	\centering
+		\begin{tabular}{ | c | c | c | c |}
+		\hline    
+		 & JUNG & prefuse & GraphStream\\ \hline
+GraphML & Yes & Yes & \\ \hline
+Net  & Yes &  & \\ \hline
+DGS &  &  & Yes \\
+\hline
+		\end{tabular}
+	\caption{The comparison of supported graph-format among JUNG, prefuse, and GraphStream.}
+	\label{tab:03_03}
+\end{table}
+
+Having discussed above, it is safe to conclude that a stable and mature visualisation framework should be employed to help developers to fulfil such requirements at minimum cost. However, a trade-off between flexibility and accessibility should also be taken into account. That is to say, the toolkit should not only encapsulate basic elements of the graph by using friendly APIs, but also provide flexible customization such as custom elements, a rich set of user-defined events, and seamless integration with other components. GraphStream is a new visualisation tool with several advanced features, but lacks of community support and success stories in both academic proposals and commercial applications. Prefuse is mature solution with an active official discussion board to answer development problems as well as a third party forum to share prefuse-based applications. However, the latest version was updated in 2007. Moreover, this tool is not specific to graph visualisation so it only provides basic layout algorithms and graph-formats. JUNG is open source and free with community support, which is active and improving since its 2.0 version was released in 2010. It focuses on graphs and provides professional features. To sum up, JUNG will be used as the graph visualisation framework in the prototype of the tool.
+
+\section{Summary}
+
+Having discussed the high-level development approach including the waterfall model and IID, the latter has been chosen as the development methodology in this work. As a consequence, the whole development process is made up of four phases, which would be described in the following chapters. The second part of this chapter presents the evaluation of several graph visualisation frameworks, in which JUNG has been selected to play a pivot role in the implementation phase (see Section~\ref{sec:riskvis_module_desc}).

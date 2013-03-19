@@ -1,0 +1,164 @@
+%% ----------------------------------------------------------------
+%% Background.tex
+%% ---------------------------------------------------------------- 
+\chapter{Background} \label{Chapter:Background}
+
+\section{Interactive Design}
+
+This section is under construction.
+
+\section{Social Network Analysis}
+
+\subsection{Thread Networks}
+
+\subsection{Network Analysis Metrics}
+
+Degree centrality
+Betweenness centrality
+Closeness centrality
+Eigenvector centrality
+
+Cluster coefficient
+Edge betweenness
+
+\subsection{Clustering and Community Finding Algorithms}
+
+Girvan-Newman Algorithm \cite{Girvan2002}
+
+Weighted Girvan-Newman Algorithm \cite{Newman2004}
+
+\subsection{Tools for Network Analysis}
+
+NodeXL \cite{Hansen2010} is a Microsoft Excel plugin.
+
+Similarly, Visone \cite{Brandes2004} also focus on analysis of social networks.
+
+Pajek \cite{DeNooy2005} is a standalone application for end users to analyse social networks.
+
+\section{ROBUST}
+
+
+
+
+\section{Tools for Graph Visualisation}
+
+This section addresses network graph visualisation requirements from technical point of view, which lists possible visualisation tools that might be employed to implement the network graph and also concludes with a basic evaluation of these tools.
+
+This section is still missing a use case scenario. SAP may be able to provide this information as part of the SCN use case.
+
+\subsection{Requirements}
+
+\subsubsection{Category}
+With this metrics we are classifying the visualisation tools into three categories:
+
+\begin{itemize}
+  \item Language: this is visualisation language providing graphical elements and semantics e.g. shapes and lines.
+  \item Library: is an api which can be used by developers and integrated in their software.
+  \item Program: a standalone application based on languages and libraries.
+In ROBUST we are looking for libraries that can be integrated in our system.
+\end{itemize}
+
+In ROBUST we are looking for libraries that can be integrated in our system.
+
+\subsubsection{Accessibility}
+Accessibility refers to how easy it is to use a tool. Obviously starting with a visualisation language is the most difficult because developers should do everything from scratch. The library is easier since programmers can simply do some complicated tasks by calling APIs. And the program is the most easy-to-use if there is a reference manual.
+
+\subsubsection{Customizability}
+Customizability is a metric to how flexible a tool can meet different requirements. Generally, customizability is at the expense of accessibility. That is to say, the library provides a set of reusable components while the language offers a host of primitives to combine more complex graphics.
+
+The library to be chosen for ROBUST should be customizable in order to enrich the visualisation with metadata required for community analysis.
+
+\subsubsection{License}
+Candidate tools are released under four kinds of software licenses: Apache License, BSD, and LGPL. Apache License and BSD are both free software license so that programmers have the right to modify source codes and publish them for commercial use. However, LGPL is stricter which means software can be used as a library and included in the application without opening up source codes. But it disallows users to make changes to that library.
+
+SAP may have preferences concerning the licence of the tool/library.
+
+\subsubsection{Size of Graph}
+The size of graph presents how many nodes and edges can be loaded into memory (not rendered in a perspective) at a time. It makes no sense to display thousands of millions of nodes in a graph because end users cannot deal with such massive elements. A good graph visualisation should provide filter mechanisms to help users to navigate through the network. 
+
+\subsubsection{Documentation}
+The documentation is an important factor when choosing a visualisation tool. It would be helpful if there are a list of high-quality documents, tutorials, and blogs.
+
+\subsubsection{Community}
+The community is another crucial metric for an open-source tool. Because most projects are immature, programmers have to cope with bugs and problems. Most programmers tend to use the tools that have an active discussion forum.
+
+\subsubsection{Deployment}
+This metric means how end users get access to the network graph. There are two mainstream deployment approaches: desktop application and web application. Desktop application is a traditional way to publish a visualisation tool. But the disadvantage is that it takes time and energy to install and update the tool. With the rapid development of Web technology, developers try to deploy their visualisations online, either Internet or Intranet.
+
+In the area of Java UI deployment, a visualisation can be deployed via Frame of JFrame as a desktop tool or published by using Applet/JWS embedded in web browsers as a web application. 
+
+\subsubsection{Language}
+Currently, most of code in ROBUST would be written in Java so programming language is another metric to guarantee that visualisation can be invoked by other components with no hassle.
+
+Additionally, if we have to use some features within an ActionScript library that other Java tools do not support. Then Native Swing\footnote{http://djproject.sourceforge.net/ns/} might be useful. It allows a Java Swing application loads a flash web site by using one of its sub-components called JWebBrowser. However, it's based on SWT library so the app is not platform-independent. More tests on different operating systems (Windows 64-bit JVM, Windows 32-bit JVM, GTK, OS X) are needed.
+
+\subsubsection{Interactivity}
+The visualisation tool should support interactivity, which allows the user to dig in/out, to show metadata and have multiple views of the same structure. In the context of the network graph, several basic requirements are listed as follows.
+
+\begin{itemize}
+  \item Built-in Layouts: see Section 4.1 for details.
+  \item Built-in Mouse/Keyboard Actions: picking a group of elements in a rectangle, highlighting the selected node and connected nodes, using the mouse wheel to zoom in/out, moving around, dragging/dropping selected nodes/edges, showing metadata via tooltip when hovering over nodes.
+  \item Customising Look/Feel: changing the appearance of nodes/edges, adding customised system events.
+  \item Filter Mechanisms: filter is used to remove part of nodes/edges in the view while retaining them in the model.
+  \item Model-View-Controller: MVC pattern is used to separate the view from the model so that it is easy to implement multiple views of the same model.
+  \item Dynamic Features: adding/modifying/removing nodes or edges on the fly.
+\end{itemize}
+
+Additionally, there are some other features that are not essential but may be useful:
+\begin{itemize}
+  \item Lens View: a built-in feature which support a magnify transformation to a graph in the view.
+  \item Cluster Support: a built-in feature which support divide nodes into different groups by highlighting the background colour.
+\end{itemize}
+
+\subsection{Available Tools}
+
+\subsubsection{Pajek}
+Pajek is a Windows program for its users to analyse data in large network graphs, which is completely different from other candidate tools. The target user group is data analysts, rather than programmers. The network graph can be imported from several file formats (plain text, Microsoft excels). Then users can use a list of built-in features to analyse the graph. Pajek also support export graphs to common outputs like SVG.
+
+\subsubsection{JUNG}
+JUNG (Java Universal Network/Graph) is a Java-based library for the purpose of visualising data via network graphs. JUNG has provided a number of built-in features encapsulated by user-friendly Java APIs.
+Added to that, JUNG has an experimental java3d-based graph rendering project called jung-3d.
+
+\subsubsection{Prefuse}
+Prefuse is a Java third party library that contains a set of user interface widgets for creating dynamic data visualisation. It makes use of the Java2D graphic library to build up high-level visual components with the aim of helping programmers quickly create visualisation applications.
+
+In contrast to JUNG, prefuse provides various types of visualisation such as graphs, trees, and charts. Particularly, GraphView and relevant classes (layout/action manager, node/edge renderer, and other functionalities) are used to support network graph visualisation.
+In 2007, prefuse has been rewritten to ActionScript code as a new library called flare, for the purpose of creating Flex-based visualisation.
+
+For more detailed information, a high-quality introduction article can be found in InfoVis Wiki\footnote{http://www.infovis-wiki.net/index.php/Prefuse} website.
+
+\subsubsection{Processing}
+Processing is a programming language, which is designed for visualising data in an environment called PDE (Processing Development Environment). Actually, the grammar of Processing is quite similar with Java, which simplifies Java APIs in the aspect of graphical tasks. Thus programmers can focus on the visualisation part.
+
+\subsubsection{Spring Graph}
+Spring Graph is an ActionScript library that visualise data in network graphs, which can be seamlessly integrated into Flex RIAs.
+
+\subsubsection{GraphStream}
+GraphStream is a Java graph library which focuses on the dynamic features. Compared with its competitors like prefuse and JUNG, GraphStream provides several advanced functions to help programmers work more efficiently with less code. This tool uses CSS wise style sheet to define the appearance of nodes and edges. In addition, Graphstream offers a built-in data importer via its own format (.dgs). It also supports SVG export with nodes, edges, and styles.
+
+\subsection{Evaluation}
+As illustrated in Table 1, several conclusions can be drawn. Firstly, Pajek is easy-to-use, well-documented. It also provides professional built-in features to analyse network graphs (especially large graphs). But it is difficult to be integrated into the project because it is a standalone analysis program. Secondly, Processing is a powerful visualisation language equipped with PDE as well as a large number of books, tutorials, and plug-ins. However, it does not focus on network graph and lacks of built-in features in a higher level so that most of requirements in Section 2.10 need to be developed from scratch. Lastly, we prefer a Java-based tool to other programming languages, so SpringGraph can be removed from the list.
+
+Now the scope has narrowed down to three tools: prefuse, JUNG, and GrapghStream. There are apparent similarities among them in most aspects of requirements so that a further assessment is needed to choose a tool from the triple.
+
+\subsubsection{Layout}
+Layout management is a crucial feature that a graph tool should provide, without which it is difficult for developers to plot thousands of graph elements in the network visualisation.
+
+According to Table 2, it is obvious that JUNG provides a richer set of layout algorithms than prefuse and GrapghStream. A brief explanation of each layout is listed as follows:
+\begin{itemize}
+  \item CircleLayout: plots nodes equally spaced on a regular circle.
+  \item FRLayout: implements the Fruchterman-Reingold algorithm. In prefuse, it is called FruchtermanReingoldLayout.
+  \item ISOMLayout: implements a self-organizing map layout algorithm, based on Meyer's self-organizing graph methods.
+  \item KKLayout: implements the Kamada-Kawai algorithm for node layout.
+  \item SpringLayout: positions graph elements based on a physics simulation of interacting forces. It is named ForceDirectedLayout and SpringBox in prefuse and GraphStream respectively.
+  \item StaticLayout: places the nodes in the locations specified by users.
+\end{itemize}
+\subsubsection{Graph-Format}
+There have been several widely used file formats to define a network graph. It is useful for programmers to save time on parsing source files as well as exporting an existing graph. They are listed in Table 3:
+
+\subsection{Summary}
+GraphStream is a new visualisation tool with several advanced features, but lacks of community support and success stories in both academic proposals and commercial applications.
+
+Prefuse is mature solution with an active official discussion board to answer developers’ problems as well as a third party forum  to share prefuse-based demos. However, the latest version was updated in 2007. Moreover, this tool is not specific to graph visualisation so it only provides basic layout algorithms and graph-formats.
+
+JUNG is open source and free with community support, which is active and improving since its 2.0 version was released in 2010. It focuses on network graphs and provides professional features. To sum up, JUNG may be the best choice for requirements of this project.

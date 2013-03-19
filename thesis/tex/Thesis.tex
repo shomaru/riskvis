@@ -1,0 +1,59 @@
+%% ----------------------------------------------------------------
+%% Thesis.tex
+%% ---------------------------------------------------------------- 
+\documentclass{ecsthesis}      % Use the Thesis Style
+\renewcommand\bibname{References}
+\graphicspath{{../Figures/}}   % Location of your graphics files
+\usepackage{natbib}            % Use Natbib style for the refs.
+\hypersetup{colorlinks=true}   % Set to false for black/white printing
+\input{Definitions}            % Include your abbreviations
+%% ----------------------------------------------------------------
+\begin{document}
+\frontmatter
+\title      {The Design, Prototype and Evaluation of a Visualisation Tool for Identifying, Analysing and Reducing Risks in Internet Forums}
+\authors    {\texorpdfstring
+             {\href{mailto:cx5g10@ecs.soton.ac.uk}{Chun Xie}}
+             {Chun Xie}
+            }
+\addresses  {\groupname\\\deptname\\\univname}
+\date       {\today}
+\subject    {}
+\keywords   {}
+\maketitle
+\begin{abstract}
+Dealing with the risk in Internet forums has become a critical work. This thesis presents a visualisation tool in order to help forum moderators and risk managers identify, analyse, and reduce a specific risk that top contributors may leave the SAP Community Network (SCN) forum.
+
+Building on the foundation of the Social Network Analysis (SNA), a social network called collaborative network in the context of the SCN forums has been carefully defined to reveal the relationship between top contributors in terms of common expertise. Furthermore, a set of social role metrics have been specified to identify those top contributors.
+
+Having inspired from the risk management standards defined in ISO 31000, the process of risk management has been applied to the visualisation tool to effectively manage risks of top contributors leaving. In the first step, the risk of top contributors leaving can be explicitly identified by mapping social role metrics into a visual property (node size) in the collaborative network visualisation. Secondly, this risk will be analysed in terms of two crucial risk attributes (impact and likelihood), which will be mapped to another two visual properties (node colour and opacity) in the collaborative network visualisation. Moreover, it is possible to further observe the evolution of the risk impact and likelihood with the aid of a contributor centric network visualisation. Lastly, the cluster finding feature has been provided by the tool to assist risk managers in searching potential successors to the leaving top contributors.
+
+This thesis also contributes a usability evaluation of the visualisation tool. Several domain-specific experts have been invited to use the tool in the face-to-face interview. Then a number of encountered usability problems as well as further comments on the tool have been collected and analysed to enhance the visualisation tool in the next development iteration.    
+ 
+\end{abstract}
+\tableofcontents
+\listoffigures
+%\listoftables
+%\lstlistoflistings
+%\listofsymbols{ll}{$w$ & The weight vector}
+\acknowledgements{I would like to thank my supervisor, Dr. Sarvapali Ramchurn for his help, support, and guidance. I would also like to express gratitude to Dr. Bassem I. Nasser, Dr. Vegard Engen, and Simon Crowle for all their assistance on my practical work in the IT-Innovation Centre. I furthermore thank Dr. Enrico Costanza for his advice on the evaluation method.}
+%\dedicatory{To \dots}
+\mainmatter
+%% ----------------------------------------------------------------
+\include{Introduction}
+%\include{Background}
+\include{RelatedWork}
+\include{Approach}
+\include{Requirements}
+\include{Design}
+\include{Prototype}
+\include{Evaluation}
+\include{Conclusions}
+\appendix
+\include{AppendixA}
+\include{AppendixB}
+\include{AppendixC}
+\backmatter
+\bibliographystyle{ecs}
+\bibliography{library}
+\end{document}
+%% ----------------------------------------------------------------

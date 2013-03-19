@@ -1,0 +1,104 @@
+%% ----------------------------------------------------------------
+%% Evaluation.tex
+%% ---------------------------------------------------------------- 
+\chapter{Evaluation of the Forum Visualisation Tool} \label{Chapter:Evaluation}
+
+This chapter begins with the purpose of the evaluation of the forum visualisation tool which has been implemented in the previous chapter by pinpointing what and why to evaluate. The participants will be then depicted to clarify who will do evaluation. The method of evaluation is further defined to answer the question how to evaluate. Lastly, the results of the evaluation will be presented and discussed.
+
+\section{Evaluation Goals}
+Before the evaluation has been conducted, the goals of the evaluation should be clarified, which have significant impact upon the methods to be chosen. There are two goals in the evaluation. Firstly, a set of problems participants have encountered during the evaluation will be listed and analysed, in order to learn which specific functionality is not good. Secondly, participants are allowed to make comments about the forum visualisation tool such as rating existing features with respect of the utility of the tool, or imposing new requirements. Both encountered problems and further comments will be used to enhance the forum visualisation tool in the next iteration. In summary, the primary purpose of the evaluation is to assess to what extent the tool can be used to complete a set of tasks without external aids.
+
+\section{Evaluation Participants}
+The participants of the evaluation can be divided into two different groups. The first group consists of MSc students who undertake their dissertations with the ROBUST project. Participants in the second group are on the staff of the IT-Innovation Centre as well as the project members. All participants have prior knowledge about the SCN Forum relational data model as well as the context of the forum visualisation tool. However, the student group lacks the expertise required for understanding a number of domain-specific requirements in the context of the forum visualisation tool.
+
+\section{Evaluation Method}
+\citep{Nielsen1993} suggests that thinking-aloud method is suitable for those evaluations whose main goal is to ``help improve the user interface as part of an iterative design process''. The think-aloud method, first introduced by \citep{Lewis1982a}, refers to a usability engineering method in which the participants are required to articulate their observations, intentions, feelings, and thoughts. \citep{Nielsen1994} reveals that about 30\% of usability problems have been found when there is only a single participant involved, whilst about 80\% of the problems had been found when the number of participants increases to five.
+As a result, a face-to-face interview with the help of the thinking-aloud method is chosen as the approach to evaluation of the forum visualisation tool, which involves two participants in the student group as well as two experts in the staff group. The interview has been organised in the following steps: preparation, thinking-aloud task, and debriefing.
+
+First of all, the interview has taken place in the meeting room of the IT Innovation Centre and each interview is expected to last about 40 minutes. The computer system has also been provided by the IT Innovation Centre, in which the distribution ZIP files of \emph{RiskVis} as well as the SCN forum powered by PostgreSQL database have been correctly installed and configured before the interview.
+
+In addition, a copy of the get started guide (see Appendix~\ref{Chapter:AppendixA}) which thoroughly details the instructions of four thinking-aloud tasks has been printed out. Also, the address of an online questionnaire (see Appendix~\ref{Chapter:AppendixB}) has been sent to the participants.
+
+Before asking the participants to do tasks, a brief introduction of the goals of the interview as well as the thinking-aloud method will be given. Then the tasks defined in the get started guide will be described in more details. The participants are expected to execute the tasks one by one and verbalise the observations and thoughts, whether the output fulfils their expectations or not. 
+After the interview, the participants are asked to fill in an online questionnaire which contains a consent form, some prior knowledge questions, a list of encountered usability problems, and any further comment about the tool.
+
+\section{Evaluation Findings}
+
+This section describes six encountered usability problems as well as three further comments about the forum visualisation tool. Table~\ref{tab:evaluation_01} illustrates the overall result which contains the participants, their groups, and prior knowledge, whilst Table~\ref{tab:evaluation_02} shows the matrix of the participants and their encountered problems, further comments, and usability ratings.
+
+\begin{table}
+	\centering
+		\begin{tabular}{ | l | l | p{3cm} | p{3cm} | p{3cm} |}
+			\hline
+    Participant & Group & Prior Knowledge of Visualisation Tool & Prior Knowledge of NetBeans & Prior Knowledge of SCN Data \\ \hline
+    User 1 & Student & No & Yes & Yes \\ \hline
+    User 2 & Staff & Yes & Yes & Yes \\ \hline
+    User 3 & Staff & No & Yes & Yes \\ \hline
+    User 4 & Student & Yes & No & Yes \\
+    \hline
+		\end{tabular}
+	\caption{The participants, group, and prior knowledge.}
+	\label{tab:evaluation_01}
+\end{table}
+
+\begin{table}
+	\centering
+		\begin{tabular}{ | c | c | c | c | c |}
+			\hline
+     & User 1 & User 2 & User 3 & User 4 \\ \hline
+    Problem 1 &  & Yes & Yes & Yes \\ \hline
+    Problem 2 & Yes &  &  & \\ \hline
+    Problem 3 &  & Yes &  & Yes \\ \hline
+    Problem 4 & Yes & Yes &  & Yes \\ \hline
+    Problem 5 & Yes & Yes &  & \\ \hline
+    Problem 6 &  &  & Yes &  \\ \hline
+    Comment 1 &  &  & Yes &  \\ \hline
+    Comment 2 &  &  & Yes & Yes \\ \hline
+    Comment 3 & Yes & Yes &  & Yes \\ \hline
+    Usability Rating & 4 & 3 & 4 & 4 \\
+    \hline    
+		\end{tabular}
+	\caption{The participants, encountered problems, further comments, and usability rating on the forum visualisation tool.}
+	\label{tab:evaluation_02}
+\end{table}
+
+\subsection{Encountered Usability Problems}
+\textbf{Problem 1: The duration drop-down list in the condition panel of the snapshot explorer window is ambiguous.}
+
+This problem has been reported by three participants. User 2 stated: ``Some things are a bit ambiguous, such as the duration in the Conditions options for the Snapshot Explorer ... one can envisage somebody wanting to monitor multiple forums, and across various time periods, not only a monthly snapshot.'' Obviously, this participant failed to realise that the duration widget is designed for select a longer time period because she supposed this widget should refer to the day selection by intuition. Having guessed the designer's intention, user 3 said: ``Data selection from the available data sets using the year-month-period format was a little difficult to understand (it needs to be presented differently).'' Moreover, user 4 found another usability issue: `` ... the unit of the duration [drop-down list] is not clear ... means monthly time period or daily [time period].''
+
+\textbf{Problem 2: Once the data has been successfully loaded, there is no graph element at all in the newly opened collaborative graph visualisation.}
+
+This problem sometimes occurs when participants have arbitrarily chosen a small forum during a short period of time. User 1 said: ``when loading snapshot data, there is no data at all in a number of snapshots. I get frustrated with the inability to load data.'' The possible solution to this problem is to test whether a snapshot is empty and highlight the empty snapshots before clicking the load button.
+
+\textbf{Problem 3: Generally speaking, it takes quite a long time to load the snapshot data.}
+
+This problem is a non-functional issue (see R4 in Section~\ref{sec:requirements}). User 2 said: ``the speed in which a snapshot is loaded is very slow, which hinders more serious use. Loading a monthly snapshot for a single forum took quite a long time, so this would really prevent somebody from analysing something greater.'' User 4 added: ``I feel a bit slow when dealing with a bulky snapshot.'' Because the snapshot data is required to be loaded from the database which has more than a million records, it is difficult to dramatically improve the performance without any architectural modification.
+
+\textbf{Problem 4: Generic graph visualisation interactions (zoom in/out, pan, drag and drop) lack the online help documents so that it is not easy for most of participants to find the starting point without the offline guide.}
+
+Similar to the Problem 1, this problem has also been encountered by three participants. User 1 stated: ``when I want to zoom in the graph visualisation, I don't know how to do it.'' Actually, it is expected to use the mouse wheel or the zoom in button in the tool bar. Unfortunately, participants failed to get this information via online help documents. User 2 and User 4 encountered much the same problem: ``it is not obvious that certain features are available by changing the cursor mode from move to select'', ``when I want to pick a node and move it around in the graph visualisation, I don't know how to do it''. In such circumstances, it is expected to click the select button in the tool bar.
+
+\textbf{Problem 5: Some users failed to realise how to get the detailed information about a specific node or edge in the graph visualisation.}
+
+This issue is another frequently encountered usability problem. User 1 said: ``when I intended to get the detailed information about a node in the graph visualisation, I can't realise how to do it.'' Similarly, User 2 added: ``it is not obvious that certain features are available by ... hovering over a node for some time reveals more information.'' The tool provides two different ways to display detailed information. Firstly, it is expected to hover over a node and stay `still' for a second to pop up the tool-tip window. Secondly, a properties sheet window can be opened via the context menu. However, most of users failed to find these two features (especially the latter) based on intuition.
+
+\textbf{Problem 6: The cluster finding feature is too complicated to help users effectively and necessarily find successors to a specific expert.}
+
+The cluster finding feature plays an essential role in the Search Successor use case. Surprisingly, user 3 explored a simple approach which just observed the node size of all neighbour nodes of a specific expert with the aid of highlighting mechanism in order to search successors. User 3 stated: ``I am not sure that the clustering functionality necessarily made it easier for me to identify the next 3 top contributors in the network.'' 
+
+\subsection{Further Comments}
+\textbf{Comment 1: the node label visual property in the collaborative graph visualisation should refer to not only the contributor id but also other node metrics.}
+
+This comment has imposed a new requirement that the node label should be mapped to display multiple node metrics. User 3 stated: ``It would be good to optionally see labels per node (such as contributor points) so it would be easy to identify contributors with similar point scores.''
+
+\textbf{Comment 2: The tool should be well equipped with an online help documents.}
+
+This comment points out one of the main drawbacks of the forum visualisation tool which is a relative lack of the online help documents. User 3 stated: ``it would be good to give some description to the tree view (cached data).'' User 4 said: ``it would be really nice to see a tips section popping up to help users.''
+
+\textbf{Comment 3: the UI of the collaborator-thread graph visualisation is impressive.}
+
+This comment focused on the collaborator-thread graph visualisation which makes use of a temporal chart to control a dynamic graph visualisation. When asked the overall feeling about the graph visualisation, User 1 stated: ``the collaborative graph visualisation is hard to make sense of it all without any background knowledge. By contrast, another [collaborator-thread] graph visualisation is relatively easier to understand based on intuition.'' Interacting with the timeline slider as well as the bar chart, User 4 added: ``The real time statistical representation was impressive.'' When asked the comparison with other visualisation tools, User 2 said: ``There were aspects of seeing how the awarded points were changing over time, which is the kind of feature that is of particular use in such a tool compared with tools that simply visualise the structure of a network. On that note, seeing how a community (structure) changes over time would be very useful, which is not possibly in other tools, as far as I know.''
+
+\section{Summary}
+Having described and analysed the evaluation result, several conclusions can be drawn. Firstly, each feature in the user interface should be designed as simple and intuitive as possible. Consider Comment 3 as a positive, the collaborator-thread graph visualisation received a relatively high rating because it uses the collaborator and thread icons to represent the corresponding concepts in the visualisation. It also successfully takes advantage of the chart bar to present the distribution of awarded points over time. By contrast, a negative example is Problem 6 which offers the cluster finding feature in the collaborative graph visualisation. Although it is quite useful to find a subgroup via the well-designed UI, most of features are too complicated and less intuitive to use. Even worse was that no tooltip or online help document is provided to participants. As a consequence, some participants attempt to use other approaches provided by the tool to complete the given task. Secondly, it should be very cautious if the feature may not comply with the intuition. For example, a misuse of the year-month-period format leads to Problem 8. Lastly, tooltips and online help documents should be provided for the less intuitive features. 
